@@ -1,41 +1,45 @@
-@extends('auth.layouts')
+@extends('layouts')
 
 @section('content')
+<div class="container login">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="form-header mb-3 text-center">ЛИЧНЫЙ КАБИНЕТ</h1>
+      <form method="POST" action="{{ route('authenticate') }}">
+        @csrf
 
-<div class="row justify-content-center mt-5">
-    <div class="col-md-8">
-
-        <div class="card">
-            <div class="card-header">Login</div>
-            <div class="card-body">
-                <form action="{{ route('authenticate') }}" method="post">
-                    @csrf
-                    <div class="mb-3 row">
-                        <label for="email" class="col-md-4 col-form-label text-md-end text-start">Name</label>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="name" value="{{ old('name') }}">
-                            @if ($errors->has('name'))
-                            <span class="text-danger">{{ $errors->first('name') }}</span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="password" class="col-md-4 col-form-label text-md-end text-start">Password</label>
-                        <div class="col-md-6">
-                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
-                            @if ($errors->has('password'))
-                            <span class="text-danger">{{ $errors->first('password') }}</span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Login">
-                    </div>
-
-                </form>
-            </div>
+        <div class="mb-3">
+          <input id="name" type="text" class="form-input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Имя пользователя" class="form-input">
+          @error('name')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+          @enderror
         </div>
+
+        <div class="mb-3">
+          <input id="password" type="password" class="form-input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Пароль">
+          @error('password')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+          @enderror
+        </div>
+
+        @error('error')
+        <span class="invalid-feedback" role="alert">
+          <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+        <div class="">
+          <button type="submit" class="form-btn form-btn-red">
+            Вход
+          </button>
+        </div>
+
+      </form>
     </div>
+  </div>
 </div>
 
 @endsection
