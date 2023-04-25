@@ -30,7 +30,13 @@
           @else
           <p><span>Нет оценки</span></p>
           @endif
-          <p>Дата голосования: <span>{{ Carbon\Carbon::parse($product->ratings->last()->created_at)->format('d.m.Y H:i') }}</span></p>
+          <p>Дата голосования:
+            @if($product->ratings->last())
+            <span>{{ Carbon\Carbon::parse($product->ratings->last()->created_at)->format('d.m.Y H:i') }}</span>
+            @else
+            <span>отсутсвует</span>
+            @endif
+          </p>
         </div>
       </div>
 

@@ -16,7 +16,11 @@
             @input="filterProducts()"
           />
         </div>
-        <div v-for="product in filteredProducts" :key="product.id">
+        <div
+          v-if="filteredProducts.length"
+          v-for="product in filteredProducts"
+          :key="product.id"
+        >
           <div class="admin-card d-flex justify-content-between">
             <div class="align-self-center">
               <h3>
@@ -41,6 +45,7 @@
             </div>
           </div>
         </div>
+        <p v-if="!filteredProducts.length">Нет продукции</p>
       </div>
       <div class="col-12">
         <a href="./products/create">

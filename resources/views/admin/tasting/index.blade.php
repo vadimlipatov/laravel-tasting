@@ -6,6 +6,7 @@
 
     <div class="active">
       <p class="form-header text-capitalize">Активные дегустации</p>
+      @if(count($activeTastings))
       @foreach($activeTastings as $tasting)
       <div class="col-12 admin-card d-flex justify-content-between">
         <div class="align-self-center">
@@ -35,10 +36,14 @@
 
       </div>
       @endforeach
+      @else
+      <p>Дегустации не проводились</p>
+      @endif
     </div>
 
     <div class="history">
       <p class="form-header text-capitalize">История дегустаций</p>
+      @if(count($finishTastings))
       @foreach($finishTastings as $tasting)
       <div class="admin-card col-12 d-flex justify-content-between">
         <div class="align-self-center">
@@ -66,6 +71,9 @@
         @endif
       </div>
       @endforeach
+      @else
+      <p>Дегустации не проводились</p>
+      @endif
     </div>
 
   </div>

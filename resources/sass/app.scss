@@ -48,8 +48,8 @@ body {
   line-height: 15px;
   // color: #b4b4b4;
   padding: 15px;
-  background: url(arrow_custom.svg) no-repeat right;
-  background-position-x: calc(100% - 8px);
+  background: url(../img/arrow.svg) no-repeat right;
+  background-position-x: calc(100% - 15px);
 }
 .form-select:not(:checked) {
   color: #b4b4b4;
@@ -821,4 +821,7 @@ select, select:hover {
 .btn-disabled {
   background-color: #6c757d;
   opacity: 0.5;
+}
+.select, select:hover {
+  background-color: #fff;
 }
