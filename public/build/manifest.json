@@ -1,4 +1,8 @@
 {
+  "resources/img/arrow.svg": {
+    "file": "assets/arrow-0bb84f1e.svg",
+    "src": "resources/img/arrow.svg"
+  },
   "resources/img/close.svg": {
     "file": "assets/close-19e14c2a.svg",
     "src": "resources/img/close.svg"
@@ -11,12 +15,12 @@
     "assets": [
       "assets/close-19e14c2a.svg"
     ],
-    "file": "assets/app-bf2e9c9c.js",
+    "file": "assets/app-85f7ed5d.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-eb2f83b8.css",
+    "file": "assets/app-e8cd7b66.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }

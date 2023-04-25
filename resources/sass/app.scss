@@ -29,8 +29,8 @@ body {
   text-transform: uppercase;
   background: #a63039;
   position: fixed;
-  top: calc(100vh - 100px);
-  max-width: 500px;
+  top: calc(100vh - 140px);
+  max-width: calc(100vw - 24px);
 }
 .form-input {
   background: #ffffff;
