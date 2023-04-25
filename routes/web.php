@@ -15,6 +15,7 @@ use \App\Http\Controllers\Auth\LoginRegisterController;
 */
 
 Route::get('/', \App\Http\Controllers\IndexController::class);
+Route::get('/qr', \App\Http\Controllers\QRController::class);
 
 // Auth
 Route::controller(LoginRegisterController::class)->group(function () {

@@ -10,22 +10,27 @@
 body {
   font-family: "Inter";
   background: #ffffff;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 // Register
 .form-btn {
+  width: 100%;
   border-radius: 3px;
   color: #fff;
   font-weight: 700;
   font-size: 12px;
   text-align: center;
   padding: 19px;
-  width: 100%;
   border: 0px;
 }
 .form-btn-red {
   text-transform: uppercase;
   background: #a63039;
+  position: fixed;
+  top: calc(100vh - 100px);
+  max-width: 500px;
 }
 .form-input {
   background: #ffffff;
@@ -120,6 +125,7 @@ body {
 .admin-card .delete {
   align-items: center;
 }
+
 .admin-users-index {
   min-height: calc(100vh - 100px);
   h1 {
