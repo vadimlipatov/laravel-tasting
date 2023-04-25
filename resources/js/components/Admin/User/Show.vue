@@ -1,47 +1,45 @@
 <template>
-  <div class="container">
-    <div class="row admin-user-show">
-      <div class="col-12">
-        <p class="header text-capitalize">{{ userName }}</p>
-        <p class="activity">Последняя активность: {{ lastActivityDate }}</p>
+  <div class="row admin-user-show">
+    <div class="col-12">
+      <p class="header text-capitalize">{{ userName }}</p>
+      <p class="activity">Последняя активность: {{ lastActivityDate }}</p>
 
-        <p class="header">Поиск</p>
-        <!-- for -->
-        <div class="filter">
-          <div class="search">
-            <input
-              placeholder="Название продукции / дегустации"
-              type="text"
-              class="w-100"
-              name="search"
-              id="search"
-              v-model="search"
-              @input="filterProducts()"
-            />
-          </div>
-
-          <div>
-            <input
-              placeholder="Дата “от”"
-              type="date"
-              name="dateFrom"
-              v-model="dateFrom"
-              @change="filterProductsByDate()"
-            />
-            <input
-              placeholder="Дата “до”"
-              type="date"
-              name="dateTo"
-              v-model="dateTo"
-              @change="filterProductsByDate()"
-            />
-          </div>
+      <p class="header">Поиск</p>
+      <!-- for -->
+      <div class="filter">
+        <div class="search">
+          <input
+            placeholder="Название продукции / дегустации"
+            type="text"
+            class="w-100"
+            name="search"
+            id="search"
+            v-model="search"
+            @input="filterProducts()"
+          />
         </div>
 
-        <p class="header-story">История дегустаций</p>
-        <div v-for="product in filteredProducts" :key="product.id">
-          <ProductItem :product="product" />
+        <div>
+          <input
+            placeholder="Дата “от”"
+            type="date"
+            name="dateFrom"
+            v-model="dateFrom"
+            @change="filterProductsByDate()"
+          />
+          <input
+            placeholder="Дата “до”"
+            type="date"
+            name="dateTo"
+            v-model="dateTo"
+            @change="filterProductsByDate()"
+          />
         </div>
+      </div>
+
+      <p class="header-story">История дегустаций</p>
+      <div v-for="product in filteredProducts" :key="product.id">
+        <ProductItem :product="product" />
       </div>
     </div>
   </div>
