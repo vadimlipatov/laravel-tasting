@@ -142,8 +142,8 @@
             :disabled="block"
             :class="
               block
-                ? 'btn-disabled form-btn form-btn-red'
-                : 'form-btn form-btn-red'
+                ? 'btn-disabled form-btn form-btn-red static'
+                : 'form-btn form-btn-red static'
             "
           >
             Отправить
