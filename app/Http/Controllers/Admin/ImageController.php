@@ -18,11 +18,21 @@ class ImageController extends Controller
     // dd($tasting->id, $product->id);
     // dd($request);
 
-    $image = Storage::disk('public')->put('images', $request['image']); // путь
+    // $image = Storage::disk('public')->put('images', $request['image']); // путь
     // $image = Storage::disk('public')->putFileAs('/images', new File('/public/images/'), $request['image']);
 
+    $request->validate([
+      'image' => 'required|image|mimes:png,jpg,jpeg|max:2048'
+    ]);
+
+    $imageName = 'images/' . time() . '.' . $request->image->extension();
+    // $imageName = $request['image'];
+
+    // Public Folder
+    $request->image->move(public_path('storage/images'), $imageName);
+
     Image::firstOrCreate([
-      'image' => $image,
+      'image' => $imageName,
       'tasting_id' => $tasting->id,
       'product_id' => $product->id,
     ]);

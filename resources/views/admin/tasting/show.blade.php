@@ -50,6 +50,11 @@
           </div>
           <button class="form-btn btn-send form-btn-red w-50 mt-3" type="submit">Добавить</button>
         </form>
+        @error('image')
+        <span class="invalid-feedback" role="alert">
+          <strong>{{ $message }}</strong>
+        </span>
+        @enderror
       </div>
 
       @endforeach
