@@ -3,8 +3,9 @@
     <div class="col-12 tasting-product-show">
       <p class="">Продукция:</p>
       <p class="">{{ product.title }}</p>
-      <div v-for="image in images" class="images">
+      <div class="images">
         <a
+          v-for="image in images"
           :href="`/storage/${image.image}`"
           data-fancybox="gallery"
           :key="image.id"
