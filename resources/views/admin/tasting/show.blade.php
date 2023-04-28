@@ -48,7 +48,7 @@
             <input type="file" name="image" class="custom-file-input" id="customFile">
             <label class="custom-file-label" for="customFile">Выберите изображение</label>
           </div>
-          <button class="form-btn form-btn-red w-50 mt-3" type="submit">Добавить</button>
+          <button class="form-btn btn-send form-btn-red w-50 mt-3" type="submit">Добавить</button>
         </form>
       </div>
 
