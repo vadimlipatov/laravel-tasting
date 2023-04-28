@@ -17,9 +17,8 @@ class ImageController extends Controller
     // $data = $request->validated();
     // dd($tasting->id, $product->id);
 
-    // $image = Storage::disk('public')->put('images', $request['image']); // путь
-    $image = Storage::putFileAs('photos', new File('/public/images/'), $request['image']);
-
+    $image = Storage::disk('public')->put('images', $request['image']); // путь
+    // $image = Storage::disk('public')->putFileAs('/images', new File('/public/images/'), $request['image']);
 
     Image::firstOrCreate([
       'image' => $image,
