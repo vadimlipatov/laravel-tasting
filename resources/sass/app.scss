@@ -837,3 +837,6 @@ select, select:hover {
 .select, select:hover {
   background-color: #fff;
 }
+#qrcode > img {
+  display: inline-block !important;
+}

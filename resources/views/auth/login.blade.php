@@ -1,7 +1,7 @@
 @extends('layouts')
 
 @section('content')
-<div class="container login">
+<div class="login">
   <div class="row">
     <div class="col-12">
       <h1 class="form-header mb-3 text-center">ЛИЧНЫЙ КАБИНЕТ</h1>
