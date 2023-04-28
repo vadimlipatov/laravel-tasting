@@ -67,7 +67,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
 });
 
 // Tastor == User
-Route::group(['namespace' => 'App\Http\Controllers\Tastor', 'prefix' => 'tastor', 'middleware' => ['auth', 'tastor']], function () {
+Route::group(['namespace' => 'App\Http\Controllers\Tastor', 'prefix' => 'tastor', 'middleware' => ['auth', 'admin', 'tastor']], function () {
 
   Route::get('/', 'IndexController')->name('tastor.index');
 
