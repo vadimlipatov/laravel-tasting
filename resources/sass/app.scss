@@ -637,7 +637,7 @@ input[type="range"]::-webkit-slider-thumb {
     .image {
       margin-right: 5px;
       display: flex;
-    justify-content: center;
+      justify-content: center;
       height: 54px;
       width: 54px;
       overflow: hidden;
@@ -782,7 +782,8 @@ input[type="range"]::-webkit-slider-thumb {
     color: #fff;
   }
 }
-.select2-container--default .select2-results__option--highlighted[aria-selected] {
+.select2-container--default
+  .select2-results__option--highlighted[aria-selected] {
   background-color: #a63039;
 }
 input {
@@ -805,41 +806,64 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #customFile:active {
   outline-color: #a63039;
 }
-select, select:hover {
-  background-color: #A63039;
+select,
+select:hover {
+  background-color: #a63039;
 }
-.select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option--highlighted[aria-selected]:hover {
-  background-color: #A63039;
+.select2-container--default
+  .select2-results__option--highlighted[aria-selected],
+.select2-container--default
+  .select2-results__option--highlighted[aria-selected]:hover {
+  background-color: #a63039;
 }
 #hidden > form > div > span > span.selection > span {
-  border-color: #A63039;
+  border-color: #a63039;
 }
-.custom-file-input:lang(en)~.custom-file-label::after {
+.custom-file-input:lang(en) ~ .custom-file-label::after {
   content: "Выбрать";
-  background-color: #A63039;
+  background-color: #a63039;
   color: #fff;
 }
 
-.custom-file-input:focus~.custom-file-label {
-  border-color: #A63039;
+.custom-file-input:focus ~ .custom-file-label {
+  border-color: #a63039;
 }
-.custom-control-label::before, .custom-file-label, .custom-select {
-    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+.custom-control-label::before,
+.custom-file-label,
+.custom-select {
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 }
 .custom-file-label {
-  border-color: #B4B4B4;
-  color: #B4B4B4;
+  border-color: #b4b4b4;
+  color: #b4b4b4;
 }
 .btn-disabled {
   background-color: #6c757d;
   opacity: 0.5;
 }
-.select, select:hover {
+.select,
+select:hover {
   background-color: #fff;
 }
 #qrcode > img {
   display: inline-block !important;
 }
-.btn-send  {
+.btn-send {
   position: static;
+}
+.rates-btn {
+  margin-top: 10px;
+  background: #a63039;
+  border-radius: 3px;
+  padding:10px 15px;
+  display: inline-block;
+  a {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+  }
 }

@@ -65,6 +65,7 @@ class User extends Authenticatable
   {
     return $this->belongsToMany(Rating::class, 'rating_users', 'user_id', 'rating_id');
   }
+
   public function getDateAsCarbonAttribute()
   {
     return Carbon::parse($this->created_at);

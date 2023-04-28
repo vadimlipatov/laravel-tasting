@@ -22,11 +22,11 @@ class ImageController extends Controller
     // $image = Storage::disk('public')->putFileAs('/images', new File('/public/images/'), $request['image']);
 
     $request->validate([
-      'image' => 'required|image|mimes:png,jpg,jpeg|max:2048'
+      // 'image' => 'required|image|mimes:png,jpg,jpeg|max:2048'
+      'image' => 'required|image'
     ]);
 
     $imageName = 'images/' . time() . '.' . $request->image->extension();
-    // $imageName = $request['image'];
 
     // Public Folder
     $request->image->move(public_path('storage/images'), $imageName);
