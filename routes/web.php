@@ -26,7 +26,8 @@ Route::controller(LoginRegisterController::class)->group(function () {
   Route::get('/login', 'login')->name('login');
   Route::post('/authenticate', 'authenticate')->name('authenticate');
   Route::get('/dashboard', 'dashboard')->name('dashboard');
-  Route::post('/logout', 'logout')->name('logout');
+  // Route::post('/logout', 'logout')->name('logout');
+  Route::get('/logout', 'logout');
 });
 
 // Admin
@@ -67,13 +68,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
 });
 
 // Tastor == User
-Route::group(['namespace' => 'App\Http\Controllers\Tastor', 'prefix' => 'tastor', 'middleware' => ['auth', 'admin']], function () {
+Route::group(['namespace' => 'App\Http\Controllers\Tastor', 'prefix' => 'tastor', 'middleware' => ['auth']], function () {
 
   Route::get('/', 'IndexController')->name('tastor.index');
 
   Route::group(['namespace' => 'Tasting', 'prefix' => 'tasting'], function () {
     Route::get('/{tasting}', 'IndexController')->name('tastor.tasting.index');
     Route::get('/{tasting}/{product}', 'ShowController')->name('tastor.tasting.show');
-    Route::post('/{tasting}/{product}/create', 'CreateController')->name('tastor.tasting.create');
   });
 });

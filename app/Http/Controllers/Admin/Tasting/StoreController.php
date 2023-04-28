@@ -15,6 +15,7 @@ class StoreController extends Controller
       'date' => 'required',
       'status' => 'required',
     ]);
+
     // dd($request);
     Tasting::create([
       'title' => $request->title,

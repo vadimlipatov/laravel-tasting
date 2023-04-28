@@ -19,7 +19,13 @@
           </div>
           <div class="description">
             <p>Продукция:</p>
-            <p><a href="{{route('tastor.tasting.show', [$tasting->id,$product['id']])}}" class="">{{$product['title']}} ({{$product['description']}})</a></p>
+            <p>
+              @if($tasting->status)
+              <a href="{{route('tastor.tasting.show', [$tasting->id,$product['id']])}}" class="">{{$product['title']}} ({{$product['description']}})</a>
+              @else
+              {{$product['title']}} ({{$product['description']}})
+              @endif
+            </p>
           </div>
         </div>
         <div class="footer d-flex justify-content-between">

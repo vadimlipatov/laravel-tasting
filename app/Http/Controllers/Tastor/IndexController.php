@@ -16,7 +16,7 @@ class IndexController extends Controller
 
     $countCloseTastingsRates = count(Rating::all()->where('user_id', auth()->user()->id)->whereIn('tasting_id', $closeTastings->pluck('id')));
 
-    $closeTastings = $countCloseTastingsRates ? $closeTastings : [];
+    // $closeTastings = $countCloseTastingsRates ? $closeTastings : [];
     // dd($closeTastings->pluck('id'));
 
     return view('tastor.index', compact(['activeTastings', 'closeTastings']));

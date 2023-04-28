@@ -14,17 +14,12 @@ class ImageController extends Controller
 {
   public function __invoke(Tasting $tasting, Product $product, Request $request)
   {
-    // $data = $request->validated();
-    // dd($tasting->id, $product->id);
-    // dd($request);
-
-    // $image = Storage::disk('public')->put('images', $request['image']); // путь
-    // $image = Storage::disk('public')->putFileAs('/images', new File('/public/images/'), $request['image']);
 
     $request->validate([
-      // 'image' => 'required|image|mimes:png,jpg,jpeg|max:2048'
       'image' => 'required|image'
     ]);
+
+    // $image = Storage::disk('public')->put('images', $request['image']); // путь
 
     $imageName = 'images/' . time() . '.' . $request->image->extension();
 

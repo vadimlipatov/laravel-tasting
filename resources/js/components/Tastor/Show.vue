@@ -123,6 +123,7 @@
               name="comment"
               placeholder=""
               id="product-comment"
+              v-model="comment"
             />
           </div>
 
@@ -134,6 +135,7 @@
               name="note"
               placeholder=""
               id="product-note"
+              v-model="note"
             />
           </div>
 
@@ -170,6 +172,8 @@ export default {
       taste: 4.6,
       smell: 4.6,
       consistency: 4.6,
+      comment: null,
+      note: null,
     };
   },
   mounted() {
@@ -193,20 +197,23 @@ export default {
     async createRate() {
       const tastingId = window.location.pathname.split("/")[3];
       const productId = window.location.pathname.split("/")[4];
+      const data = {
+        commercial: this.commercial,
+        appearance: this.appearance,
+        cut: this.cut,
+        color: this.color,
+        taste: this.taste,
+        smell: this.smell,
+        consistency: this.consistency,
+        comment: this.comment,
+        note: this.note,
+        userId: document.getElementById("userId").value,
+      };
+      // console.log(data, this.$router.params);
       const res = await axios.post(
         `/api/tastor/${tastingId}/${productId}/create`,
-        {
-          commercial: this.commercial,
-          appearance: this.appearance,
-          cut: this.cut,
-          color: this.color,
-          taste: this.taste,
-          smell: this.smell,
-          consistency: this.consistency,
-          userId: document.getElementById("userId").value,
-        }
+        data
       );
-      // console.log(res);
       this.block = true;
     },
   },

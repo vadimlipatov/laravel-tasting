@@ -69,9 +69,11 @@
         <p class="voted-title">Нет голосов...</p>
         @endif
       </div>
+      @if($tasting->status)
       <div class="rates-btn">
         <a href="{{route('tastor.tasting.show', [$tasting->id, $product->id])}}">Голосовать</a>
       </div>
+      @endif
     </div>
 
     <a class="share form-btn-red data-share" href="#" data-title="{{$tasting->title}} от {{ Carbon\Carbon::parse($tasting->date)->format('d.m.Y') }}" data-text="{{$product->title}} ({{$product->description}}) - {{$average}} {{$persons}}" data-url="{{url()->current()}}">Поделиться результатами</a>

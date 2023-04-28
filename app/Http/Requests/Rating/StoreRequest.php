@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Rate;
+namespace App\Http\Requests\Rating;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,13 +22,16 @@ class StoreRequest extends FormRequest
   public function rules(): array
   {
     return [
-      // 'title' => 'string|required|max:255',
-      // 'content' => 'string|required',
-      // 'preview_image' => 'file|required',
-      // 'main_image' => 'file|required',
-      // 'category_id' => 'required|integer|exists:categories,id',
-      // 'tag_ids' => 'nullable|array',
-      // 'tag_id.*' => 'nullable|integer|exists:tags,id',
+      'commercial' => 'required|decimal:1',
+      'appearance' => 'required|decimal:1',
+      'cut' => 'required|decimal:1',
+      'color' => 'required|decimal:1',
+      'taste' => 'required|decimal:1',
+      'smell' => 'required|decimal:1',
+      'consistency' => 'required|decimal:1',
+      'comment' => 'nullable|string',
+      'note' => 'nullable|string',
+      'userId' => 'required|integer'
     ];
   }
 

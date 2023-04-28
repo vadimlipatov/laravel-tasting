@@ -35,10 +35,6 @@
         <img src="{{asset('/img/logo.svg')}}" alt="logo">
       </a>
     </div>
-    <!-- <form style="line-height: 93px;" method="post" action="{{route('logout')}}">
-      @csrf
-      <button class="btn btn-outline-primary" type="submit">Logout</button>
-    </form> -->
   </div>
   <div class="container">
     <div id="app">
