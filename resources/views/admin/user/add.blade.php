@@ -41,7 +41,7 @@
         </div>
 
         <div class="">
-          <button type="submit" class="form-btn form-btn-red">
+          <button type="submit" class="static form-btn form-btn-red">
             Создать
           </button>
         </div>
