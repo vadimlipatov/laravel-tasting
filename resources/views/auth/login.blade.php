@@ -32,7 +32,7 @@
         </span>
         @enderror
         <div class="">
-          <button type="submit" class="form-btn form-btn-red">
+          <button type="submit" class="form-btn form-btn-red login-btn">
             Вход
           </button>
         </div>
