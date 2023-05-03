@@ -73,7 +73,8 @@ class LoginRegisterController extends Controller
         return view('tastor.index');
       }
     }
-    return view('auth.login');
+    $users = User::all();
+    return view('auth.login', compact('users'));
   }
 
   /**
