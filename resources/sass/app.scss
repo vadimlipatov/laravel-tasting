@@ -30,7 +30,8 @@ body {
   background: #a63039;
   position: fixed;
   top: calc(100vh - 130px);
-  max-width: calc(100vw - 24px);
+  // max-width: calc(100vw - 24px);
+  max-width: 476px;
 }
 .form-input {
   background: #ffffff;
@@ -869,9 +870,4 @@ select:hover {
 }
 .static {
   position: static;
-}
-
-.login-btn {
-// max-width: 500px;
-position: static;
 }

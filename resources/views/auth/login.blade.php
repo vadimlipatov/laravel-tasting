@@ -4,7 +4,7 @@
 <div class="login">
   <div class="row">
     <div class="col-12">
-      <h1 class="form-header mb-3 text-center">ЛИЧНЫЙ КАБИНЕТ</h1>
+      <h1 class="form-header mb-3 text-center">ЛИЧНЫЙ КАБИНЕТ{{old('name')}}</h1>
       <form method="POST" action="{{ route('authenticate') }}">
         @csrf
         <div class="mb-3">
@@ -12,7 +12,7 @@
           <select class="form-select" name="name">
             <option value="" disabled selected>Имя пользователя</option>
             @foreach($users as $user)
-            <option value="{{$user->name}}">{{$user->name}}</option>
+            <option value="{{$user->name}}" {{ $user->name == old('name') ? ' selected' : '' }}>{{$user->name}}</option>
             @endforeach
           </select>
           @error('name')
@@ -37,7 +37,7 @@
         </span>
         @enderror
         <div class="">
-          <button type="submit" class="form-btn form-btn-red login-btn">
+          <button type="submit" class="form-btn form-btn-red static">
             Вход
           </button>
         </div>

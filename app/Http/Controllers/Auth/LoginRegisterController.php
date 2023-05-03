@@ -44,16 +44,13 @@ class LoginRegisterController extends Controller
       'password' => 'required|min:3',
       'role' => 'required'
     ]);
-    // dd($request);
+
     User::create([
       'name' => $request->name,
       'role' => $request->role,
       'password' => Hash::make($request->password)
     ]);
 
-    // $credentials = $request->only('name', 'password');
-    // Auth::attempt($credentials);
-    // $request->session()->regenerate();
     return redirect()->route('admin.user.index')
       ->withSuccess('You have successfully registered');
   }
@@ -66,7 +63,7 @@ class LoginRegisterController extends Controller
   public function login()
   {
     if (Auth::check()) {
-      // return view('auth.dashboard');
+
       if (auth()->user()->role == 0) {
         return view('admin.index');
       } elseif (auth()->user()->role == 2) {
@@ -87,9 +84,9 @@ class LoginRegisterController extends Controller
   {
     $credentials = $request->validate([
       'name' => 'required',
-      'password' => 'required'
+      'password' => 'required|string'
     ]);
-    // dd(auth()->user()->role);
+    // dd(Auth::user());
     if (Auth::attempt($credentials)) {
       $request->session()->regenerate();
 
@@ -103,8 +100,10 @@ class LoginRegisterController extends Controller
           'name' => 'Фукционала для технолога пока нет',
         ]);
       }
-      return back();
     }
+    return back()->withErrors([
+      'password' => 'Неверный пароль',
+    ]);;
   }
 
   /**

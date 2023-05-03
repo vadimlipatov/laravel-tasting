@@ -75,7 +75,7 @@
             @endforeach
           </select>
         </div>
-        <button class="form-btn form-btn-red w-50" type="submit">Добавить</button>
+        <button class="form-btn form-btn-red w-50 static" type="submit">Добавить</button>
       </form>
     </div>
   </div>
