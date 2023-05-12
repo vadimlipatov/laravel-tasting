@@ -11,13 +11,14 @@ class StoreController extends Controller
 {
   public function __invoke(Request $request, Tasting $tasting)
   {
-    $products = $request->products;
-    // dd($products);
-    foreach ($products as $product_id) {
-      ProductTasting::firstOrCreate([
-        'product_id' => $product_id,
-        'tasting_id' => $tasting->id,
-      ]);
+    if ($request->products) {
+      $products = $request->products;
+      foreach ($products as $product_id) {
+        ProductTasting::firstOrCreate([
+          'product_id' => $product_id,
+          'tasting_id' => $tasting->id,
+        ]);
+      }
     }
 
     return redirect()->route('admin.tasting.show', $tasting);
