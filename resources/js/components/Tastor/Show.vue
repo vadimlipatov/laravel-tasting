@@ -140,16 +140,16 @@
           </div>
 
           <button
-            @click.prevent="createRate()"
+            @click.prevent="createRate"
             type="submit"
-            :disabled="block"
+            :disabled="disabled"
             :class="
-              block
+              disabled
                 ? 'btn-disabled form-btn form-btn-red static'
                 : 'form-btn form-btn-red static'
             "
           >
-            Отправить
+            {{ disabled ? "Вы уже голосовали" : "Отправить" }}
           </button>
         </div>
       </form>
@@ -164,7 +164,7 @@ export default {
       tasting: {},
       images: [],
       product: {},
-      block: false,
+      disabled: false,
       commercial: 4.6,
       appearance: 4.6,
       cut: 4.6,
@@ -190,7 +190,7 @@ export default {
       this.tasting = res.data.tasting;
       this.images = res.data.images;
       this.product = res.data.product;
-      this.block = !!res.data.blockButton;
+      this.disabled = !!res.data.blockButton;
 
       // console.log(res);
     },
@@ -209,13 +209,27 @@ export default {
         note: this.note,
         userId: document.getElementById("userId").value,
       };
-      // console.log(data, this.$router.params);
+
       const res = await axios.post(
         `/api/tastor/${tastingId}/${productId}/create`,
         data
       );
-      this.block = true;
+
+      if ((res.data.message = "ok")) {
+        alert("Спасибо, ваш голос принят!");
+        this.disabled = true;
+      }
     },
   },
 };
 </script>
+<style scoped>
+button[type="submit"]:hover {
+  /* background: #a63039; */
+  opacity: 0.8;
+}
+button[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #e8a1a7;
+}
+</style>

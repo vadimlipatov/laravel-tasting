@@ -11,11 +11,18 @@
     "file": "assets/range-57def5fc.svg",
     "src": "resources/img/range.svg"
   },
+  "resources/js/app.css": {
+    "file": "assets/app-4153a203.css",
+    "src": "resources/js/app.css"
+  },
   "resources/js/app.js": {
     "assets": [
       "assets/close-19e14c2a.svg"
     ],
-    "file": "assets/app-4cb9bf3a.js",
+    "css": [
+      "assets/app-4153a203.css"
+    ],
+    "file": "assets/app-56d84a3f.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
