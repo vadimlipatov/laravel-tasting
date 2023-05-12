@@ -161,6 +161,9 @@
 export default {
   data() {
     return {
+      tastingId: null,
+      productId: null,
+      userId: null,
       tasting: {},
       images: [],
       product: {},
@@ -177,26 +180,25 @@ export default {
     };
   },
   mounted() {
+    this.userId = document.getElementById("userId").value;
+    this.tastingId = window.location.pathname.split("/")[3];
+    this.productId = window.location.pathname.split("/")[4];
     this.getData();
   },
   methods: {
     async getData() {
-      const user_id = document.getElementById("userId").value;
-      const tastingId = window.location.pathname.split("/")[3];
-      const productId = window.location.pathname.split("/")[4];
-      const res = await axios.post(`/api/tastor/${tastingId}/${productId}`, {
-        user_id,
-      });
+      const res = await axios.post(
+        `/api/tastor/${this.tastingId}/${this.productId}`,
+        {
+          user_id: this.userId,
+        }
+      );
       this.tasting = res.data.tasting;
-      this.images = res.data.images;
       this.product = res.data.product;
+      this.images = res.data.images;
       this.disabled = !!res.data.blockButton;
-
-      // console.log(res);
     },
     async createRate() {
-      const tastingId = window.location.pathname.split("/")[3];
-      const productId = window.location.pathname.split("/")[4];
       const data = {
         commercial: this.commercial,
         appearance: this.appearance,
@@ -207,11 +209,11 @@ export default {
         consistency: this.consistency,
         comment: this.comment,
         note: this.note,
-        userId: document.getElementById("userId").value,
+        userId: this.userId,
       };
 
       const res = await axios.post(
-        `/api/tastor/${tastingId}/${productId}/create`,
+        `/api/tastor/${this.tastingId}/${this.productId}/create`,
         data
       );
 
@@ -225,7 +227,6 @@ export default {
 </script>
 <style scoped>
 button[type="submit"]:hover {
-  /* background: #a63039; */
   opacity: 0.8;
 }
 button[type="submit"]:focus {
