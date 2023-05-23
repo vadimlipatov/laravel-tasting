@@ -1,7 +1,7 @@
 @extends('layouts')
 
 @section('content')
-<div class="container register">
+<div class="register">
   <div class="row">
     <div class="col-12">
       <h1 class="form-header mb-3 text-center">ДОБАВИТЬ Продукцию</h1>

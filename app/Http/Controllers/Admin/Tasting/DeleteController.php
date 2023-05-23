@@ -16,8 +16,12 @@ class DeleteController extends Controller
       $image->delete();
     });
 
-    $tasting->product_tastings->each(function ($pt) {
-      $pt->delete();
+    $tasting->product_tastings->each(function ($item) {
+      $item->delete();
+    });
+
+    $tasting->ratings->each(function ($item) {
+      $item->delete();
     });
 
     $tasting->delete();

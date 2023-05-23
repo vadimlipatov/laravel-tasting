@@ -30,8 +30,8 @@ body {
   background: #a63039;
   position: fixed;
   top: calc(100vh - 130px);
-  // max-width: calc(100vw - 24px);
-  max-width: 476px;
+  max-width: calc(100vw - 24px);
+  // max-width: 476px;
 }
 .form-input {
   background: #ffffff;
@@ -442,9 +442,6 @@ body {
   .delete {
     display: flex;
     align-items: center;
-  }
-  .form-btn-red {
-    width: 100%;
   }
 }
 
@@ -870,4 +867,10 @@ select:hover {
 }
 .static {
   position: static;
+}
+.red {
+  background-color: #a63039;
+}
+.text-red {
+  color: #a63039;
 }

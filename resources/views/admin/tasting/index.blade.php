@@ -14,17 +14,7 @@
           <p class="activity mb-0">Опрос активен</p>
         </div>
 
-        @if (!$tasting->ratings->count())
-        <div class="delete d-flex">
-          <form method="post" action="{{route('admin.tasting.delete', $tasting->id)}}">
-            @csrf
-            @method('delete')
-            <button type="submit" class="border-0 bg-transparent p-0 m-0">
-              <img src="{{asset('/img/close.svg')}}" alt="delete_btn">
-            </button>
-          </form>
-        </div>
-        @else
+
         <div class="delete d-flex">
           <a data-fancybox href="#hidden">
             <button type="submit" class="border-0 bg-transparent p-0 m-0">
@@ -32,7 +22,6 @@
             </button>
           </a>
         </div>
-        @endif
 
       </div>
       @endforeach
@@ -50,17 +39,7 @@
           <h3><a href="{{route('admin.tasting.show', $tasting->id)}}">{{$tasting->title}} от {{ Carbon\Carbon::parse($tasting->date)->format('d.m.Y') }}</a></h3>
           <p class="activity mb-0">Итоги подведены</p>
         </div>
-        @if (!$tasting->ratings->count())
-        <div class="delete">
-          <form method="post" action="{{route('admin.tasting.delete', $tasting->id)}}">
-            @csrf
-            @method('delete')
-            <button type="submit" class="border-0 bg-transparent p-0 m-0">
-              <img src="{{asset('/img/close.svg')}}" alt="delete_btn">
-            </button>
-          </form>
-        </div>
-        @else
+
         <div class="delete d-flex">
           <a data-fancybox href="#hidden">
             <button type="submit" class="border-0 bg-transparent p-0 m-0">
@@ -68,7 +47,6 @@
             </button>
           </a>
         </div>
-        @endif
       </div>
       @endforeach
       @else
@@ -86,8 +64,19 @@
   </div>
 
 </div>
-
+@if(count($activeTastings) || count($finishTastings))
 <div style="display: none; width: 500px;" id="hidden">
-  <h2>Дегустацию нельзя удалить тк есть оценки</h2>
+  <h2>Вы действительно хотите удалить дегустацию?</h2>
+  <div class="flex justify-content-evenly mt-4" style="display: flex">
+    <form method="post" class="w-25" action="{{route('admin.tasting.delete', $tasting->id)}}">
+      @csrf
+      @method('delete')
+      <button type="submit" class="form-btn text-red">
+        Да
+      </button>
+    </form>
+    <button  data-fancybox-close class="form-btn w-25 red">НЕТ</button>
+  </div>
 </div>
+@endif
 @endsection
