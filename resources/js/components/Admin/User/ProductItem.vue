@@ -1,7 +1,10 @@
 <template>
   <div @click="toggleCard()" v-if="toggle" class="admin-card">
     <div class="header d-flex justify-content-between">
-      <p class="title">{{ product.title }} ({{ product.description }})</p>
+      <p v-if="product.description" class="title">
+        {{ product.title }} ({{ product.description }})
+      </p>
+      <p v-else class="title">{{ product.title }}</p>
       <p class="rate">{{ product.average }}</p>
     </div>
     <div class="rating d-flex justify-content-between">
@@ -59,9 +62,10 @@
     class="admin-card admin-card-short d-flex justify-content-between"
   >
     <div class="admin-card-short-body">
-      <p class="admin-card-short-header">
+      <p v-if="product.description" class="admin-card-short-header">
         {{ product.title }} ({{ product.description }})
       </p>
+      <p v-else class="admin-card-short-header">{{ product.title }}</p>
       <div class="date">
         <p class="">
           Дата голосования:

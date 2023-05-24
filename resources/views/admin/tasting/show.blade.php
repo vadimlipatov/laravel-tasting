@@ -21,7 +21,11 @@
           </div>
           <div class="description">
             <p>Продукция:</p>
+            @if($product->description)
             <p><a href="{{route('admin.tasting.product.show', [$tasting->id, $product->id])}}" class="">{{$product->title}} ({{$product->description}})</a></p>
+            @else
+            <p><a href="{{route('admin.tasting.product.show', [$tasting->id, $product->id])}}" class="">{{$product->title}}</a></p>
+            @endif
           </div>
         </div>
         <div class="footer d-flex justify-content-between">

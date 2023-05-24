@@ -8,7 +8,11 @@
         <div class="product-show-title">
           <h1 class="">{{$tasting->title}} от {{ Carbon\Carbon::parse($tasting->date)->format('d.m.Y') }}</h1>
           <p class="activity">Продукция:</p>
+          @if($product->description)
           <p class="product">{{$product->title}} ({{$product->description}})</p>
+          @else
+          <p class="product">{{$product->title}}</p>
+          @endif
         </div>
         <div class="product-rate-score align-self-center">{{$average}}</div>
       </div>

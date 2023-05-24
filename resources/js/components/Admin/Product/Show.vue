@@ -46,7 +46,6 @@
           <div class="admin-card">
             <div class="header d-flex mb-0 justify-content-between">
               <p class="title">
-                <!-- <a :href="`${product.id}/${tasting.id}`" -->
                 <a href="#"
                   >{{ tasting.title }} от
                   {{ tasting.date.replace(/(\d+)-(\d+)-(\d+)/, "$3.$2.$1") }}</a
