@@ -71,6 +71,7 @@ class LoginRegisterController extends Controller
       }
     }
     $users = User::all();
+
     return view('auth.login', compact('users'));
   }
 
@@ -86,7 +87,7 @@ class LoginRegisterController extends Controller
       'name' => 'required',
       'password' => 'required|string'
     ]);
-    // dd(Auth::user());
+
     if (Auth::attempt($credentials)) {
       $request->session()->regenerate();
 
@@ -94,7 +95,6 @@ class LoginRegisterController extends Controller
         return redirect()->route('admin.index');
       } elseif (auth()->user()->role == 2) {
         return redirect()->route('tastor.index');
-        // return redirect()->route('tastor.index');
       } elseif (auth()->user()->role == 1) {
         return back()->withErrors([
           'name' => 'Фукционала для технолога пока нет',

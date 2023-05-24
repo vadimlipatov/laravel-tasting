@@ -23,9 +23,12 @@
         <div class="admin-card d-flex justify-content-between">
           <div class="align-self-center">
             <h3>
-              <a :href="`./products/${product.id}`"
+              <a v-if="product.description" :href="`./products/${product.id}`"
                 >{{ product.title }} ({{ product.description }})</a
               >
+              <a v-else :href="`./products/${product.id}`"
+                >{{ product.title }}
+              </a>
             </h3>
             <p class="activity mb-0">
               Последняя дегустация: {{ product.lastActivityDate }}

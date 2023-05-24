@@ -12,7 +12,7 @@ class StoreController extends Controller
   {
     $request->validate([
       'title' => 'required|string||min:5|max:250',
-      'description' => 'required|string|min:5|max:250',
+      'description' => 'nullable|string',
     ]);
     // dd($request);
     Product::create([

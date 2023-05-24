@@ -18,7 +18,7 @@
         </div>
 
         <div class="mb-3">
-          <input type="text" class="form-input @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus placeholder="Описание" class="form-input">
+          <input type="text" class="form-input @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" autocomplete="description" autofocus placeholder="Описание" class="form-input">
           @error('description')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>

@@ -3,8 +3,11 @@
     <div class="col-12">
       <div class="product-show-title d-flex justify-content-between">
         <div class="product-rate-description">
-          <h1 class="text-capitalize">
+          <h1 v-if="product.description" class="text-capitalize">
             {{ product.title }} ({{ product.description }})
+          </h1>
+          <h1 v-else class="text-capitalize">
+            {{ product.title }}
           </h1>
           <p class="activity">
             Последняя дегустация:
