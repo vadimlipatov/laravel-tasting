@@ -35,6 +35,11 @@
             </p>
           </div>
           <div class="delete align-self-center">
+            <a :href="`./products/${product.id}/edit`" class="mr-3">
+              <button type="submit" class="border-0 bg-transparent delete-btn">
+                <img src="@/../img/pencil.svg" alt="delete_btn" />
+              </button>
+            </a>
             <a :href="`./products/${product.id}/delete`">
               <button
                 @click.prevent="deleteProduct(product.id)"

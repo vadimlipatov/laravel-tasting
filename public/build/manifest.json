@@ -7,6 +7,10 @@
     "file": "assets/close-19e14c2a.svg",
     "src": "resources/img/close.svg"
   },
+  "resources/img/pencil.svg": {
+    "file": "assets/pencil-e296b546.svg",
+    "src": "resources/img/pencil.svg"
+  },
   "resources/img/range.svg": {
     "file": "assets/range-57def5fc.svg",
     "src": "resources/img/range.svg"
@@ -17,12 +21,13 @@
   },
   "resources/js/app.js": {
     "assets": [
+      "assets/pencil-e296b546.svg",
       "assets/close-19e14c2a.svg"
     ],
     "css": [
       "assets/app-c1de3159.css"
     ],
-    "file": "assets/app-903a5a1d.js",
+    "file": "assets/app-925ddb93.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

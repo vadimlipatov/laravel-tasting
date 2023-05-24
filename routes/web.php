@@ -47,6 +47,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
     Route::get('/create', 'CreateController')->name('admin.product.create');
     Route::post('/create', 'StoreController')->name('admin.product.store');
     Route::get('/{product}', 'ShowController')->name('admin.product.show');
+    Route::get('/{product}/edit', 'EditController')->name('admin.product.edit');
+    Route::post('/{product}/update', 'UpdateController')->name('admin.product.update');
     Route::post('/{product}/delete', 'DeleteController')->name('admin.product.delete');
     Route::get('/{product}/{tasting}', 'TastingController')->name('admin.product.tasting.show');
   });
