@@ -71,7 +71,11 @@
         <div class="form-group">
           <select class="select2" multiple="multiple" data-placeholder="Выберите продукцию" name="products[]" style="width: 100%;">
             @foreach($allProducts as $product)
+            @if($product->description)
             <option value="{{$product->id}}">{{$product->title}} ({{$product->description}})</option>
+            @else
+            <option value="{{$product->id}}">{{$product->title}}</option>
+            @endif
             @endforeach
           </select>
         </div>
