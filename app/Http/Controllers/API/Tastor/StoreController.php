@@ -34,8 +34,7 @@ class StoreController extends Controller
       'average' => $average,
       'comment' => $request->comment,
       'note' => $request->note,
-      'user_id' =>
-      $request->userId,
+      'user_id' => $request->userId,
       'tasting_id' => $tasting->id,
       'product_id' => $product->id,
     ];

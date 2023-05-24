@@ -30,15 +30,15 @@
         </div>
         <div class="footer d-flex justify-content-between">
           @if(round($product->ratings->where('tasting_id', $tasting->id)->avg('average'),2))
-          <p>Средний бал: <span>{{round($product->ratings->where('tasting_id', $tasting->id)->avg('average'),2)}}</span></p>
+          <p>Средний бал: <span>{{number_format($product->ratings->where('tasting_id', $tasting->id)->avg('average'),1)}}</span></p>
           @else
           <p><span>Нет оценки</span></p>
           @endif
           <p>Дата голосования:
             @if($product->ratings->last())
-            <span>{{ Carbon\Carbon::parse($product->ratings->last()->created_at)->format('d.m.Y H:i') }}</span>
+            <span>{{ Carbon\Carbon::parse($product->ratings->last()->created_at)->tz(my_local())->format('d.m.Y H:i') }}</span>
             @else
-            <span>отсутсвует</span>
+            <span>отсутствует</span>
             @endif
           </p>
         </div>

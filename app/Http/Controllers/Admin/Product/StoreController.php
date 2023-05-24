@@ -10,15 +10,15 @@ class StoreController extends Controller
 {
   public function __invoke(Request $request)
   {
-    $request->validate([
+    $data = $request->validate([
       'title' => 'required|string||min:5|max:250',
       'description' => 'nullable|string',
+      'manufacturing_at' => 'required|string|date',
+      'technologist' => 'nullable|string',
+      'company' => 'nullable|string',
     ]);
     // dd($request);
-    Product::create([
-      'title' => $request->title,
-      'description' => $request->description,
-    ]);
+    Product::create($data);
 
     return redirect()->route('admin.product.index')
       ->withSuccess('You have successfully added product');

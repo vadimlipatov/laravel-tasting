@@ -12,7 +12,13 @@
     <div class="admin-card d-flex justify-content-between">
       <div class="">
         <h3><a href="{{route('admin.user.show', $user['id'])}}">{{$user->name}}</a></h3>
-        <p class="activity">Последняя активность: {{$user->lastActivityDate}}</p>
+        <p class="activity">Последняя активность:
+          @if($user->lastActivityDate)
+          {{$user->lastActivityDate}}
+          @else
+          нет
+          @endif
+        </p>
         <p class="access mb-0">Доступ: <span>{{$user->getRoles()[$user->role]}}</span></p>
       </div>
       <div class="delete d-flex">

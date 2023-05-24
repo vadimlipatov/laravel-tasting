@@ -19,11 +19,23 @@
 
         <div class="mb-3">
           <input type="text" class="form-input @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" autocomplete="description" autofocus placeholder="Описание" class="form-input">
-          @error('description')
+        </div>
+
+        <div class="mb-3">
+          <input type="text" onfocus="(this.type='date')" class="form-input @error('manufacturing_at') is-invalid @enderror" name="manufacturing_at" value="{{ old('manufacturing_at') }}" autocomplete="manufacturing_at" autofocus placeholder="Дата производства" class="form-input">
+          @error('manufacturing_at')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
+        </div>
+
+        <div class="mb-3">
+          <input type="text" class="form-input @error('technologist') is-invalid @enderror" name="technologist" value="{{ old('technologist') }}" autocomplete="technologist" autofocus placeholder="ФИО технолога" class="form-input">
+        </div>
+
+        <div class="mb-3">
+          <input type="text" class="form-input @error('company') is-invalid @enderror" name="company" value="{{ old('company') }}" autocomplete="company" autofocus placeholder="Компания" class="form-input">
         </div>
 
         <div class="">

@@ -13,6 +13,9 @@ class UpdateController extends Controller
     $data = $request->validate([
       'title' => 'required|string||min:5|max:250',
       'description' => 'nullable|string',
+      'manufacturing_at' => 'required|string|date',
+      'technologist' => 'nullable|string',
+      'company' => 'nullable|string',
     ]);
 
     // dd($product);

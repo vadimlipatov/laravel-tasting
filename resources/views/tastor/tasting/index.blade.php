@@ -21,9 +21,9 @@
             <p>Продукция:</p>
             <p>
               @if($tasting->status)
-              <a href="{{route('tastor.tasting.show', [$tasting->id,$product['id']])}}" class="">{{$product['title']}} ({{$product['description']}})</a>
+              <a href="{{route('tastor.tasting.show', [$tasting->id,$product['id']])}}" class="">{{$product['title']}} {{$product['description']}}</a>
               @else
-              {{$product['title']}} ({{$product['description']}})
+              {{$product['title']}} {{$product['description']}}
               @endif
             </p>
           </div>
@@ -34,7 +34,7 @@
           @else
           <p><span>Нет оценки</span></p>
           @endif
-          <p>Дата голосования: <span>{{ Carbon\Carbon::parse($product['created_at'])->format('d.m.Y H:i') }}</span></p>
+          <p>Дата голосования: <span>{{ Carbon\Carbon::parse($product['created_at'])->tz(my_local())->format('d.m.Y H:i') }}</span></p>
         </div>
       </div>
       @endforeach

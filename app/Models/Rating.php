@@ -12,8 +12,9 @@ class Rating extends Model
 
   protected $guarded = false;
 
-  public function getDateAsCarbonAttribute()
+  public function user()
   {
-    return Carbon::parse($this->created_at);
+    return User::find($this->user_id);
+    // return $this->belongsTo(User::class);
   }
 }

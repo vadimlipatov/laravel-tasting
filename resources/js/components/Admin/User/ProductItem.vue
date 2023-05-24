@@ -10,31 +10,31 @@
     <div class="rating d-flex justify-content-between">
       <div class="rating-item">
         <p class="rating-header">Тов. вид</p>
-        <p class="rate">{{ product.commercial }}</p>
+        <p class="rate">{{ product.commercial.toFixed(1) }}</p>
       </div>
       <div class="rating-item">
         <p class="rating-header">Внеш. вид</p>
-        <p class="rate">{{ product.appearance }}</p>
+        <p class="rate">{{ product.appearance.toFixed(1) }}</p>
       </div>
       <div class="rating-item">
         <p class="rating-header">Разрез</p>
-        <p class="rate">{{ product.cut }}</p>
+        <p class="rate">{{ product.cut.toFixed(1) }}</p>
       </div>
       <div class="rating-item">
         <p class="rating-header">Цвет</p>
-        <p class="rate">{{ product.color }}</p>
+        <p class="rate">{{ product.color.toFixed(1) }}</p>
       </div>
       <div class="rating-item">
         <p class="rating-header">Вкус</p>
-        <p class="rate">{{ product.taste }}</p>
+        <p class="rate">{{ product.taste.toFixed(1) }}</p>
       </div>
       <div class="rating-item">
         <p class="rating-header">Запах</p>
-        <p class="rate">{{ product.smell }}</p>
+        <p class="rate">{{ product.smell.toFixed(1) }}</p>
       </div>
       <div class="rating-item">
         <p class="rating-header">Консист.</p>
-        <p class="rate">{{ product.consistency }}</p>
+        <p class="rate">{{ product.consistency.toFixed(1) }}</p>
       </div>
     </div>
     <div class="comment">
@@ -44,13 +44,13 @@
     <div class="date">
       <p class="">
         <b>Дата голосования:</b>
-        {{ product.date.replace(/(\d+)-(\d+)-(\d+)/, "$3.$2.$1") }}
+        {{ product.created_at }}
       </p>
       <p class="">
         <b>Дегустация:</b
         ><span>
           Дегустация от
-          {{ product.date.replace(/(\d+)-(\d+)-(\d+)/, "$3.$2.$1") }}</span
+          {{ product.date }}</span
         >
       </p>
     </div>
@@ -67,15 +67,9 @@
       </p>
       <p v-else class="admin-card-short-header">{{ product.title }}</p>
       <div class="date">
+        <p class="">Дата голосования: {{ product.created_at }}</p>
         <p class="">
-          Дата голосования:
-          {{ product.date.replace(/(\d+)-(\d+)-(\d+)/, "$3.$2.$1") }}
-        </p>
-        <p class="">
-          Дегустация:<span>
-            Дегустация от
-            {{ product.date.replace(/(\d+)-(\d+)-(\d+)/, "$3.$2.$1") }}</span
-          >
+          Дегустация:<span> Дегустация от {{ product.date }}</span>
         </p>
       </div>
     </div>

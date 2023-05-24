@@ -17,7 +17,7 @@ class IndexController extends Controller
     foreach ($products as $key => $product) {
       $query = DB::table('ratings')->where('product_id', $product['id']);
 
-      $products[$key]['lastActivityDate'] = $query->count() ? Carbon::parse($query->latest()->first()->created_at)->format('d.m.Y')  : '';
+      $products[$key]['lastActivityDate'] = $query->count() ? Carbon::parse($query->latest()->first()->created_at)->tz(my_local())->format('d.m.Y')  : '';
     }
 
     return [

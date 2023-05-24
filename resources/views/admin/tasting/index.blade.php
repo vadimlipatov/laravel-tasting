@@ -10,10 +10,9 @@
       @foreach($activeTastings as $tasting)
       <div class="col-12 admin-card d-flex justify-content-between">
         <div class="align-self-center">
-          <h3><a href="{{route('admin.tasting.show', $tasting->id)}}">{{$tasting->title}} от {{ Carbon\Carbon::parse($tasting->date)->format('d.m.Y') }}</a></h3>
+          <h3><a href="{{route('admin.tasting.show', $tasting->id)}}">{{$tasting->title}} от {{ Carbon\Carbon::parse($tasting->date)->tz(my_local())->format('d.m.Y') }}</a></h3>
           <p class="activity mb-0">Опрос активен</p>
         </div>
-
 
         <div class="delete d-flex">
           <a data-fancybox href="#hidden">
@@ -36,7 +35,7 @@
       @foreach($finishTastings as $tasting)
       <div class="admin-card col-12 d-flex justify-content-between">
         <div class="align-self-center">
-          <h3><a href="{{route('admin.tasting.show', $tasting->id)}}">{{$tasting->title}} от {{ Carbon\Carbon::parse($tasting->date)->format('d.m.Y') }}</a></h3>
+          <h3><a href="{{route('admin.tasting.show', $tasting->id)}}">{{$tasting->title}} от {{ Carbon\Carbon::parse($tasting->date)->tz(my_local())->format('d.m.Y') }}</a></h3>
           <p class="activity mb-0">Итоги подведены</p>
         </div>
 
@@ -75,7 +74,7 @@
         Да
       </button>
     </form>
-    <button  data-fancybox-close class="form-btn w-25 red">НЕТ</button>
+    <button data-fancybox-close class="form-btn w-25 red">НЕТ</button>
   </div>
 </div>
 @endif

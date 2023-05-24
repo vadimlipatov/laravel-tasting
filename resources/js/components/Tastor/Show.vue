@@ -153,6 +153,16 @@
           </button>
         </div>
       </form>
+
+      <div style="display: none; width: 500px" id="hidden">
+        <h2>Спасибо, Ваш голос принят!</h2>
+        <div class="flex justify-content-evenly mt-4" style="display: flex">
+          <button data-fancybox-close class="form-btn w-50 red">ОК</button>
+        </div>
+      </div>
+      <button id="popup" style="display: none" href="#hidden" data-fancybox>
+        Открыть Fancybox
+      </button>
     </div>
   </div>
 </template>
@@ -218,7 +228,7 @@ export default {
       );
 
       if ((res.data.message = "ok")) {
-        alert("Спасибо, ваш голос принят!");
+        document.getElementById("popup").click();
         this.disabled = true;
       }
     },

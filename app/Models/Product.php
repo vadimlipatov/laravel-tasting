@@ -20,4 +20,8 @@ class Product extends Model
   {
     return $this->hasMany(Image::class);
   }
+
+  protected $dates = [
+    'manufacturing_at',
+  ];
 }

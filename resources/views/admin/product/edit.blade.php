@@ -19,11 +19,23 @@
 
         <div class="mb-3">
           <input type="text" class="form-input @error('description') is-invalid @enderror" name="description" value="{{ $product->description }}" autocomplete="description" autofocus placeholder="Описание" class="form-input">
-          @error('description')
+        </div>
+
+        <div class="mb-3">
+          <input type="date" class="form-input @error('manufacturing_at') is-invalid @enderror" name="manufacturing_at" value="{{ $product->manufacturing_at }}" autocomplete="manufacturing_at" autofocus placeholder="Дата производства" class="form-input">
+          @error('manufacturing_at')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
+        </div>
+
+        <div class="mb-3">
+          <input type="text" class="form-input @error('technologist') is-invalid @enderror" name="technologist" value="{{ $product->technologist }}" autocomplete="technologist" autofocus placeholder="ФИО технолога" class="form-input">
+        </div>
+
+        <div class="mb-3">
+          <input type="text" class="form-input @error('company') is-invalid @enderror" name="company" value="{{ $product->company }}" autocomplete="company" autofocus placeholder="Компания" class="form-input">
         </div>
 
         <div class="">
