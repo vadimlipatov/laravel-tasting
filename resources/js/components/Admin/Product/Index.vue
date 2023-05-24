@@ -21,7 +21,7 @@
         :key="product.id"
       >
         <div class="admin-card d-flex justify-content-between">
-          <div class="align-self-center">
+          <div class="align-self-center" style="max-width: 80%">
             <h3>
               <a v-if="product.description" :href="`./products/${product.id}`"
                 >{{ product.title }} ({{ product.description }})</a
